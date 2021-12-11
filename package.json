@@ -1,0 +1,17 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "Virtual javascript vet",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Emily Cotter",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.4"
+  }
+}
