@@ -1,6 +1,6 @@
 const maximumFitness = 10;
-let minimumAge = 0;
-let minimumHunger = 0;
+const minimumAge = 0;
+const minimumHunger = 0;
 
 function Pet (name) {
     this.name = name; 
