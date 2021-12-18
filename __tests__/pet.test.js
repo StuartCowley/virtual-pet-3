@@ -74,3 +74,50 @@ describe('constructor', () => {
       expect(pet.hunger).toEqual(0);
     });
   });
+
+  describe('checkUp', () => {
+    let pet;
+    beforeEach(() => {
+      pet = new Pet('Jessie');
+    });
+    it('returns I need to walk if pets fitness is 3 or less', () => {
+      pet.fitness = 3;
+      pet.checkUp();
+      expect(pet.checkUp()).toEqual('I need a walk')
+    });
+    it('returns I need to walk if pets fitness is 1', () => {
+      pet.fitness = 1;
+      pet.checkUp();
+      expect(pet.checkUp()).toEqual('I need a walk')
+    });
+    it('returns I am hungry if pets hunger is 5 or more', () => {
+      pet.hunger = 5;
+      pet.checkUp();
+      expect(pet.checkUp()).toEqual('I am hungry');
+    });
+    it('returns I am hungry if pets hunger is 10', () => {
+      pet.hunger = 10;
+      pet.checkUp();
+      expect(pet.checkUp()).toEqual('I am hungry');
+    });
+    it('returns I need a walk AND I am hungry if fitness if 3 or less and fitness is 3 or less and its hunger is 5 or more', () => {
+      pet.fitness = 3;
+      pet.hunger = 5;
+      expect(pet.checkUp()).toEqual('I need a walk AND I am hungry');
+    });
+    it('returns I need a walk AND I am hungry if fitness if 3 or less and fitness is 3 or less and its hunger is 5 or more', () => {
+      pet.fitness = 1;
+      pet.hunger = 8;
+      expect(pet.checkUp()).toEqual('I need a walk AND I am hungry');
+    });
+    it('returns I feel great if pets fitness is 4 or above and its hunger is 4 or less', () => {
+      pet.fitness = 4;
+      pet.hunger = 4;
+      expect(pet.checkUp()).toEqual('I feel great');
+    });
+    it('returns I feel great if pets fitness is 4 or above and its hunger is 4 or less', () => {
+      pet.fitness = 7;
+      pet.hunger = 2;
+      expect(pet.checkUp()).toEqual('I feel great');
+    });
+  });
