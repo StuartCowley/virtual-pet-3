@@ -9,6 +9,12 @@ function Pet (name) {
     this.fitness = maximumFitness;
 };
 
+Pet.prototype = {
+    get isAlive(){
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+    }
+}
+
 Pet.prototype.growUp = function() {
     this.age += 1;
     this.hunger += 5;
@@ -21,7 +27,7 @@ Pet.prototype.walk = function() {
     }
     else { 
         this.fitness = maximumFitness;
-    }
+    };
 };
 
 Pet.prototype.feed = function() {
@@ -30,7 +36,7 @@ Pet.prototype.feed = function() {
     }
     else {
         this.hunger = minimumHunger;
-    }
+    };
 };
 
 Pet.prototype.checkUp = function() {
@@ -47,5 +53,6 @@ Pet.prototype.checkUp = function() {
         return 'I feel great';
     };
 };
+
 
 module.exports = Pet;
