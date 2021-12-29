@@ -197,3 +197,22 @@ describe('constructor', () => {
      expect(parent.children[0].checkUp()).toEqual('I feel great');
     });
   });
+
+  describe('haveBaby', () =>{
+    let pet;
+    beforeEach(() => {
+      pet = new Pet('Jessie');
+    });
+    it('creates child object as a property of parent', () => {
+      pet.haveBaby('Spot');
+      expect(pet.children).toEqual([
+        {
+          name: 'Spot',
+          age: 0,
+          hunger: 0,
+          fitness: 10,
+          children: [],
+        }
+      ])
+    });
+  });
