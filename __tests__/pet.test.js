@@ -162,3 +162,38 @@ describe('constructor', () => {
       expect(pet.isAlive).toBe(true);
     });
   });
+
+  describe('adoptChild', () => {
+    let parent;
+    let child;
+    beforeEach(() => {
+      parent = new Pet('Jessie');
+      child = new Pet('Nima');
+    });
+    it('adds child to parent property', () => {
+      parent.adoptChild(child);
+      expect(parent.children).toBeInstanceOf(Array);
+    })
+    it('checks that child is being fed', () => {
+      parent.adoptChild(child);
+      child.hunger = 6;
+      parent.children[0].feed();
+      expect(child.hunger).toEqual(3);
+    });
+    it('checks that child grows up', () => {
+      parent.adoptChild(child);
+      child.age = 1;
+      parent.children[0].growUp();
+      expect(child.age).toEqual(2);
+    });
+    it('checks that child is being walked', () => {
+      parent.adoptChild(child);
+      child.fitness = 5;
+      parent.children[0].walk();
+      expect(child.fitness).toEqual(9);
+    });
+    it('checks up on the child', () => {
+      parent.adoptChild(child);
+     expect(parent.children[0].checkUp()).toEqual('I feel great');
+    });
+  });
