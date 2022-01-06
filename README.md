@@ -22,11 +22,11 @@ It is a virtual pet made out of JavaScript that has multiple features simulating
 * maxAge = 30 - after 30 your pet will sadly die
 * minHunger = 0
 * maxHunger = 10
-* birthday = 1 - adds one year to age
-* meal = 5 - adds 5+ to hunger level when grows up
-* fitloss = 3 - decreases fitness by 3 when grows up
-* walked = 4 - increases fitness by 4 when walk() invoked
-* fed = 3 - decreases hunger by 3 when feed() invoked
+* yearIncrement - adds one year to age
+* hungerIncrement - adds 5+ to hunger level when `growUp()` invoked
+* fitnessDecrement - decreases fitness by 3 when `growUp()` invoked
+* fitnessIncrement - increases fitness by 4 when `walk()` invoked
+* hungerDecrement - decreases hunger by 3 when `feed()` invoked
 
 # Requirements
 

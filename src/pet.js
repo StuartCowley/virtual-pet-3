@@ -7,11 +7,11 @@ const maxAge = 30;
 const minHunger = 0;
 const maxHunger = 10;
 
-const birthday = 1; // adds one year to age
-const meal = 5; // adds 5+ to hunger level when grows up
-const fitloss = 3; // decreases fitness by 3 when grows up
-const walked = 4; // increases fitness by 4 when walk() invoked
-const fed = 3; // decreases hunger by 3 when feed() invoked
+const yearIncrement = 1; // adds one year to age
+const hungerIncrement = 5; // adds 5+ to hunger level when grows up
+const fitnessDecrement = 3; // decreases fitness by 3 when grows up
+const fitnessIncrement = 4; // increases fitness by 4 when walk() invoked
+const hungerDecrement = 3; // decreases hunger by 3 when feed() invoked
 
 const errorMsg = 'Your pet is no longer alive :(';
 
@@ -35,29 +35,24 @@ Pet.prototype.growUp = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
     }
-  this.age += birthday;
-  this.hunger += meal;
-  this.fitness -= fitloss;
+  this.age += yearIncrement;
+  this.hunger += hungerIncrement;
+  this.fitness -= fitnessDecrement;
 };
 
 Pet.prototype.walk = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
   }
-  if ((this.fitness + walked) <= maxFitness ) {
-    this.fitness += walked;
-  }
-  else { 
-    this.fitness = maxFitness;
-  };
+  this.fitness = Math.min((this.fitness + fitnessIncrement), maxFitness)
 };
 
 Pet.prototype.feed = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
   }
-  if ((this.hunger - fed) > minHunger ){
-    this.hunger -= fed;
+  if ((this.hunger - hungerDecrement) > minHunger ){
+    this.hunger -= hungerDecrement;
   }
   else {
     this.hunger = minHunger;
@@ -68,13 +63,13 @@ Pet.prototype.checkUp = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
   }
-  if (this.fitness <=fitloss && this.hunger >= meal) {
+  if (this.fitness <= fitnessDecrement && this.hunger >= hungerIncrement) {
     return 'I need a walk AND I am hungry';
   }
-  else if (this.fitness <= fitloss) {
+  else if (this.fitness <= fitnessDecrement) {
     return 'I need a walk';
   }
-  else if (this.hunger >= meal) {
+  else if (this.hunger >= hungerIncrement) {
     return 'I am hungry';
   }
   else {
