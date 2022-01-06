@@ -1,5 +1,5 @@
 # Virtual pet project
-This project is part of the Manchester Codes Programming funadmentals module. 
+This project is part of the Manchester Codes programming funadmentals module. 
 
 ## Description 
 
@@ -38,4 +38,3 @@ It is a virtual pet made out of JavaScript that has multiple features simulating
 
 # Author
 Emily Cotter
-
