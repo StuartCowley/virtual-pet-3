@@ -1,5 +1,5 @@
 # Virtual pet project
-This project is part of the Manchester Codes programming funadmentals module. 
+This project is part of the Manchester Codes programming fundamentals module. 
 
 ## Description 
 
