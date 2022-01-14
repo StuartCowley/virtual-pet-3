@@ -19,7 +19,7 @@ describe('constructor', () => {
     });
     it('has initial fitness of 10', () => {
       expect(pet.fitness).toEqual(10);
-    } )
+    });
   });
 
   describe('growUp', () => {
@@ -173,7 +173,7 @@ describe('constructor', () => {
     it('adds child to parent property', () => {
       parent.adoptChild(child);
       expect(parent.children).toBeInstanceOf(Array);
-    })
+    });
     it('checks that child is being fed', () => {
       parent.adoptChild(child);
       child.hunger = 6;
@@ -194,7 +194,7 @@ describe('constructor', () => {
     });
     it('checks up on the child', () => {
       parent.adoptChild(child);
-     expect(parent.children[0].checkUp()).toEqual('I feel great');
+      expect(parent.children[0].checkUp()).toEqual('I feel great');
     });
   });
 
