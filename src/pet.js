@@ -51,12 +51,7 @@ Pet.prototype.feed = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
   }
-  if ((this.hunger - hungerDecrement) > minHunger ){
-    this.hunger -= hungerDecrement;
-  }
-  else {
-    this.hunger = minHunger;
-  };
+  this.hunger = Math.min((this.hunger - hungerDecrement), minHunger)
 };
 
 Pet.prototype.checkUp = function() {
