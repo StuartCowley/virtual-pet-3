@@ -34,7 +34,7 @@ Pet.prototype = {
 Pet.prototype.growUp = function() {
   if (!this.isAlive) {
     throw new Error(errorMsg);
-    }
+  }
   this.age += yearIncrement;
   this.hunger += hungerIncrement;
   this.fitness -= fitnessDecrement;
@@ -78,6 +78,6 @@ Pet.prototype.adoptChild = function (child) {
 
 Pet.prototype.haveBaby = function (child) {
   this.children.push(new Pet (child));
-}
+};
 
 module.exports = Pet;
